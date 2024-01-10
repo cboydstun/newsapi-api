@@ -1,11 +1,12 @@
 const express = require('express');
 require('dotenv').config()
-
+const cors = require('cors');
 
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
 
 const app = express();
+app.use(cors());
 const port = process.env.PORT || 8080;
 
 app.get('/top-headlines', async (req, res) => {
